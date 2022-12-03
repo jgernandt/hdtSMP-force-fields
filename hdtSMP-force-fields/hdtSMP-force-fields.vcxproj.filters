@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Skyrim">
+      <UniqueIdentifier>{bc30bb10-ff00-4f2c-bc57-916e648043e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\obj_traits">
+      <UniqueIdentifier>{49e01c42-9c48-4953-9424-19e46215be79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Fields">
+      <UniqueIdentifier>{d6eaa066-cfee-4a27-8548-c5614a1cb580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Field components">
+      <UniqueIdentifier>{9f7f07dd-5f6b-4026-a4c4-4cbaaacdf605}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Skyrim">
+      <UniqueIdentifier>{0b915917-cfc5-4cd0-9fef-216b8400fc4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fields">
+      <UniqueIdentifier>{36e7b02b-5945-48a1-92cc-6cae7c40d294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\obj_traits">
+      <UniqueIdentifier>{c4af175f-1e80-44fa-bf5e-5ef2922e68e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BulletAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ForceFieldManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="get_member.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="objects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="relocation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="var_size.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bs_types.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="BSFixedString.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="Form.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="Hazard.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelReferenceEffect.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="ni_ptr.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="NiAVObject.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="NiExtraData.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="NiMath.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="NiObject.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="NiObjectNET.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="NiRefObject.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="NiStringsExtraData.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectReference.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\Skyrim</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect_traits.h">
+      <Filter>Header Files\obj_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="Hazard_traits.h">
+      <Filter>Header Files\obj_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="obj_traits.h">
+      <Filter>Header Files\obj_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRef_traits.h">
+      <Filter>Header Files\obj_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile_traits.h">
+      <Filter>Header Files\obj_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="Bomb.h">
+      <Filter>Header Files\Fields</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder.h">
+      <Filter>Header Files\Fields</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion_traits.h">
+      <Filter>Header Files\obj_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="IForceField.h">
+      <Filter>Header Files\Fields</Filter>
+    </ClInclude>
+    <ClInclude Include="TForceField.h">
+      <Filter>Header Files\Fields</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Header Files\Fields</Filter>
+    </ClInclude>
+    <ClInclude Include="Vortex.h">
+      <Filter>Header Files\Fields</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Header Files\Fields</Filter>
+    </ClInclude>
+    <ClInclude Include="Clock.h">
+      <Filter>Header Files\Field components</Filter>
+    </ClInclude>
+    <ClInclude Include="Concepts.h">
+      <Filter>Header Files\Field components</Filter>
+    </ClInclude>
+    <ClInclude Include="Force.h">
+      <Filter>Header Files\Field components</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry.h">
+      <Filter>Header Files\Field components</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformable.h">
+      <Filter>Header Files\Field components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ForceFieldManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="relocation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="var_size.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BSFixedString.cpp">
+      <Filter>Source Files\Skyrim</Filter>
+    </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>Source Files\Skyrim</Filter>
+    </ClCompile>
+    <ClCompile Include="Hazard.cpp">
+      <Filter>Source Files\Skyrim</Filter>
+    </ClCompile>
+    <ClCompile Include="memory.cpp">
+      <Filter>Source Files\Skyrim</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelReferenceEffect.cpp">
+      <Filter>Source Files\Skyrim</Filter>
+    </ClCompile>
+    <ClCompile Include="NiObjectNET.cpp">
+      <Filter>Source Files\Skyrim</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectReference.cpp">
+      <Filter>Source Files\Skyrim</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files\Skyrim</Filter>
+    </ClCompile>
+    <ClCompile Include="Bomb.cpp">
+      <Filter>Source Files\Fields</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Source Files\Fields</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Source Files\Fields</Filter>
+    </ClCompile>
+    <ClCompile Include="Vortex.cpp">
+      <Filter>Source Files\Fields</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect_traits.cpp">
+      <Filter>Source Files\obj_traits</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRef_traits.cpp">
+      <Filter>Source Files\obj_traits</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
