@@ -130,7 +130,6 @@ public:
 	~fcn_ptr() = default;
 
 	T get() { assert(this->address()); return reinterpret_cast<T>(this->address()); }
-	const T* get() const { assert(this->address()); return reinterpret_cast<T*>(this->address()); }
 
 	template<typename... Args> requires std::is_invocable_v<T, Args...>
 	std::invoke_result_t<T, Args...> operator() (Args&&... args) 
