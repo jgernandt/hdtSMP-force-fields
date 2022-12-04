@@ -68,8 +68,8 @@ void jg::ForceFieldManager::onEvent(const hdt::PreStepEvent& e)
 	
 	if (!m_active.empty() && e.objects.size() != 0) {
 		//We dynamically select the fastest threading policy, based on previous performance.
-		if (m_workerPool && lastMulti && lastSingle && randf() < lastSingle / (lastMulti + lastSingle)) {
-			m_workerPool.release(&m_active, &e.objects);
+		if (m_workerPool && (lastMulti || lastSingle) && randf() < lastSingle / (lastMulti + lastSingle)) {
+			m_workerPool.release(m_active, e.objects);
 			m_workerPool.wait();
 
 			//Some arbitrary power to push towards the faster method
@@ -318,7 +318,9 @@ jg::ForceFieldManager::WorkerPool::WorkerPool(int n) :
 
 jg::ForceFieldManager::WorkerPool::~WorkerPool()
 {
-	release(nullptr, nullptr);
+	m_bodies = nullptr;
+	m_fields = nullptr;
+	m_startSignal.release(m_workers.size());
 	for (auto&& worker : m_workers) {
 		worker.join();
 	}
@@ -331,14 +333,12 @@ void jg::ForceFieldManager::WorkerPool::wait()
 	m_fields = nullptr;
 }
 
-void jg::ForceFieldManager::WorkerPool::release(const Fields* fields, const Bodies* bodies)
+void jg::ForceFieldManager::WorkerPool::release(const Fields& fields, const Bodies& bodies)
 {
-	if (bodies && fields) {
-		m_bodies = bodies;
-		m_fields = fields;
-		m_jobCounter.store(bodies->size(), std::memory_order::relaxed);
-		m_startSignal.release(m_workers.size());
-	}
+	m_bodies = &bodies;
+	m_fields = &fields;
+	m_jobCounter.store(bodies.size(), std::memory_order::relaxed);
+	m_startSignal.release(m_workers.size());
 }
 
 void jg::ForceFieldManager::WorkerPool::work()

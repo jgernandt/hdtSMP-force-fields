@@ -31,7 +31,7 @@ namespace jg
 			~WorkerPool();
 
 			void wait();
-			void release(const Fields* fields, const Bodies* bodies);
+			void release(const Fields& fields, const Bodies& bodies);
 
 			explicit operator bool() const { return !m_workers.empty(); }
 
