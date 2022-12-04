@@ -55,8 +55,8 @@ struct address_table<Skyrim::MemoryManager, Ts...> : address_table<Ts...>
 	constexpr static std::size_t MemoryManager__Free{ address_table<Ts...>::COUNT + 1 };
 	Address _MemoryManager__Free{ 66861, 68117 };
 
-	constexpr static std::size_t MemoryManager{ address_table<Ts...>::COUNT + 2 };
-	Address _MemoryManager{ 514110, 400188 };
+	constexpr static std::size_t MemoryManager__Get{ address_table<Ts...>::COUNT + 2 };
+	Address _MemoryManager__Get{ 11045, 11141 };
 
 	constexpr static std::size_t COUNT{ address_table<Ts...>::COUNT + 3 };
 };

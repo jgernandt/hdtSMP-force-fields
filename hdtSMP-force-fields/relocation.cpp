@@ -54,12 +54,12 @@ bool initAddressTable(const SkyrimVersion& version)
 	names[AddressTable::ModelReferenceEffect__Unk57bcc0] = "ModelReferenceEffect__Unk57bcc0";
 	names[AddressTable::MemoryManager__Allocate] = "MemoryManager__Allocate";
 	names[AddressTable::MemoryManager__Free] = "MemoryManager__Free";
+	names[AddressTable::MemoryManager__Get] = "MemoryManager__Get";
 	names[AddressTable::BSFixedString__ctor] = "BSFixedString__ctor";
 	names[AddressTable::BSFixedString__ctor_copy] = "BSFixedString__ctor_copy";
 	names[AddressTable::BSFixedString__assign] = "BSFixedString__assign";
 	names[AddressTable::BSFixedString__assign_copy] = "BSFixedString__assign_copy";
 	names[AddressTable::BSFixedString__Release] = "BSFixedString__Release";
-	names[AddressTable::MemoryManager] = "MemoryManager";
 	names[AddressTable::NiRTTI_NiStringsExtraData] = "NiRTTI_NiStringsExtraData";
 
 	bool success = true;
