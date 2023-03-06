@@ -40,7 +40,7 @@ bool initAddressTable(const SkyrimVersion& version)
 	IAddressLib db;
 	if (!db.load(version)) {
 		_ERROR("ERROR: Failed to load address library version %d.%d.%d.%d", 
-			version.major, version.minor, version.revision, version.build);
+			version.major, version.minor, version.revision, 0);
 		return false;
 	}
 
@@ -95,7 +95,7 @@ bool IAddressLib::load(const SkyrimVersion& version)
 		loadedVersion = V1_5;
 		loadedDb = db;
 
-		return db->Load(version.major, version.minor, version.revision, version.build);
+		return db->Load(version.major, version.minor, version.revision, 0);
 	}
 	else {
 		auto db = new AddressLib_1_6;
@@ -103,7 +103,7 @@ bool IAddressLib::load(const SkyrimVersion& version)
 		loadedVersion = V1_6;
 		loadedDb = db;
 
-		return db->Load(version.major, version.minor, version.revision, version.build);
+		return db->Load(version.major, version.minor, version.revision, 0);
 	}
 
 	return false;

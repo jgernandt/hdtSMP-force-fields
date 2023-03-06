@@ -10,8 +10,14 @@ using UInt64 = std::uint64_t;
 #include "skse64/PluginAPI.h"
 #include "PluginHelper.h"
 
-constexpr const char* LOG_PATH{ "\\My Games\\Skyrim Special Edition\\SKSE\\HDT-SMP Force Fields.log" };
-constexpr const char* CONFIG_PATH{ "My Games\\Skyrim Special Edition\\SKSE\\HDT-SMP Force Fields.ini" };
+constexpr const char* LOG_PATH_STEAM{ "\\My Games\\Skyrim Special Edition\\SKSE\\HDT-SMP Force Fields.log" };
+constexpr const char* CONFIG_PATH_STEAM{ "My Games\\Skyrim Special Edition\\SKSE\\HDT-SMP Force Fields.ini" };
+
+constexpr const char* LOG_PATH_GOG{ "\\My Games\\Skyrim Special Edition\\SKSE\\HDT-SMP Force Fields.log" };
+constexpr const char* CONFIG_PATH_GOG{ "My Games\\Skyrim Special Edition\\SKSE\\HDT-SMP Force Fields.ini" };
+
+const char* g_logPath;
+const char* g_cfgPath;
 
 bool attachHooks();
 bool loadConfig()
@@ -20,7 +26,7 @@ bool loadConfig()
 	HRESULT res = SHGetKnownFolderPath(FOLDERID_Documents, 0, NULL, &wpath);
 	if (SUCCEEDED(res)) {
 		std::filesystem::path documents(wpath, std::filesystem::path::native_format);
-		std::filesystem::path configPath(documents / CONFIG_PATH);
+		std::filesystem::path configPath(documents / g_cfgPath);
 
 		_VMESSAGE("File path: %s", configPath.string().c_str());
 
@@ -77,22 +83,6 @@ public:
 	}
 };
 
-static void reportVersion(const SKSEInterface& skse, SkyrimVersion& r_version)
-{
-	r_version.full = skse.runtimeVersion;
-	r_version.major = GET_EXE_VERSION_MAJOR(r_version.full);
-	r_version.minor = GET_EXE_VERSION_MINOR(r_version.full);
-	r_version.revision = GET_EXE_VERSION_BUILD(r_version.full);
-	r_version.build = GET_EXE_VERSION_SUB(r_version.full);
-
-	_MESSAGE("Game version %d.%d.%d", r_version.major, r_version.minor, r_version.revision);
-	_MESSAGE("SKSE version %d.%d.%d",
-		GET_EXE_VERSION_MAJOR(skse.skseVersion),
-		GET_EXE_VERSION_MINOR(skse.skseVersion),
-		GET_EXE_VERSION_BUILD(skse.skseVersion));
-	_MESSAGE("Plugin version %d.%d.%d\n", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
-}
-
 extern "C" {
 
 	__declspec(dllexport) SKSEPluginVersionData SKSEPlugin_Version = {
@@ -111,12 +101,34 @@ extern "C" {
 	{
 		assert(skse);
 
-		gLog.OpenRelative(CSIDL_MYDOCUMENTS, LOG_PATH);
+		SkyrimVersion version;
+		version.full = skse->runtimeVersion;
+		version.major = GET_EXE_VERSION_MAJOR(version.full);
+		version.minor = GET_EXE_VERSION_MINOR(version.full);
+		version.revision = GET_EXE_VERSION_BUILD(version.full);
+		version.platform = GET_EXE_VERSION_SUB(version.full);
+
+		switch (version.platform) {
+		case RUNTIME_TYPE_BETHESDA:
+			g_logPath = LOG_PATH_STEAM;
+			g_cfgPath = CONFIG_PATH_STEAM;
+			break;
+		case RUNTIME_TYPE_GOG:
+			g_logPath = LOG_PATH_GOG;
+			g_cfgPath = CONFIG_PATH_GOG;
+			break;
+		}
+
+		gLog.OpenRelative(CSIDL_MYDOCUMENTS, g_logPath);
 		gLog.SetPrintLevel(IDebugLog::kLevel_Message);
 		gLog.SetLogLevel(IDebugLog::kLevel_Message);
 
-		SkyrimVersion version;
-		reportVersion(*skse, version);
+		_MESSAGE("Game version %d.%d.%d", version.major, version.minor, version.revision);
+		_MESSAGE("SKSE version %d.%d.%d",
+			GET_EXE_VERSION_MAJOR(skse->skseVersion),
+			GET_EXE_VERSION_MINOR(skse->skseVersion),
+			GET_EXE_VERSION_BUILD(skse->skseVersion));
+		_MESSAGE("Plugin version %d.%d.%d\n", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
 
 		if (!loadConfig()) {
 			_WARNING("Failed to load config file. Using default settings.\n");
