@@ -117,6 +117,8 @@ extern "C" {
 			g_logPath = LOG_PATH_GOG;
 			g_cfgPath = CONFIG_PATH_GOG;
 			break;
+		default:
+			return false;
 		}
 
 		gLog.OpenRelative(CSIDL_MYDOCUMENTS, g_logPath);
